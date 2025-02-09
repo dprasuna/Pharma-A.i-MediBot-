@@ -9,8 +9,7 @@ Pharma AI MediBot is an intelligent AI-powered platform that provides comprehens
 🔹 Pricing & Composition – Estimated cost and active ingredients of medicines.
 🔹 User-Friendly Interface – Simple input field to enter a medicine name and receive instant AI-generated insights.
 
-📸 Screenshots
-🚀 [Add screenshots of your app here]
+
 
 🛠️ Tech Stack
 Frontend: React.js / Next.js
