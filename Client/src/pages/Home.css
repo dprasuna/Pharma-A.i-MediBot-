@@ -1,0 +1,50 @@
+/* Home.css */
+.current-input {
+    background-color: var(--fg-color);
+    border: 1px solid var(--hl-color);
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .current-input h2 {
+    font-size: 1em;
+    color: var(--hl-color);
+    margin: 0;
+  }
+  
+  
+  .login-prompt {
+    background-color: transparent;
+    border: 1px solid var(--hl-color);
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+  }
+  
+  .login-prompt p {
+    font-size: 0.9em;
+    color: var(--font-color);
+    margin: 0;
+  }
+  
+  .login-prompt button {
+    background-color: var(--hl-color);
+    color: var(--bg-color);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+  }
+  
+  .login-prompt button:hover {
+    background-color: var(--font-color);
+  }
+  

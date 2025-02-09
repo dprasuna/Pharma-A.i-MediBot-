@@ -1,0 +1,93 @@
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  z-index: 1000;
+}
+
+.loader-container.inline {
+  position: absolute;
+  background-color: transparent;
+}
+
+.loader {
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: visibility 0.3s ease, opacity 0.4s ease-out;
+  }
+  
+  .loader.stop {
+    pointer-events: none;
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .ring {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: -30px;
+    border: 4px solid transparent;
+    border-radius: 50%;
+    border-top: 4px solid var(--hl-color);
+  }
+  
+  .ring::before {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    background-color: var(--hl-color);
+    box-shadow: 
+      0 0 0 5px var(--hl-color33),
+      0 0 0 10px var(--hl-color22),
+      0 0 0 20px var(--hl-color11),
+      0 0 40px var(--hl-color),
+      0 0 50px var(--hl-color);
+  }
+  
+  .ring:nth-child(1) {
+    animation: circle2 2s linear infinite;
+  }
+  
+  .ring:nth-child(2) {
+    animation: circle1 2s linear infinite;
+  }
+  
+  .ring:nth-child(3) {
+    position: absolute;
+    top: 33%;
+    animation: circle 2s linear infinite;
+  }
+  
+  @keyframes circle {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  @keyframes circle1 {
+    0% { transform: rotate(120deg); }
+    100% { transform: rotate(480deg); }
+  }
+  
+  @keyframes circle2 {
+    0% { transform: rotate(240deg); }
+    100% { transform: rotate(600deg); }
+  }

@@ -1,0 +1,180 @@
+/* General Styles */
+.sidebar {
+  width: var(--sidebar-width, 300px);
+  height: 100vh;
+  background-color: var(--fg-color);
+  color: var(--font-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* margin-right:20px; */
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar:not(.open) {
+  transform: translateX(-100%);
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: var(--hl-color);
+  color: var(--bg-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.logo-details {
+  display: flex;
+  align-items: center;
+}
+
+.logo-details .logo-icon {
+  font-size: 30px;
+  margin-right: 10px;
+  color: var(--bg-color);
+}
+
+.logo-details .logo_name {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--bg-color);
+}
+
+
+.user-content {
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.saved-content {
+  background-color: var(--bg-color-light);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.saved-content h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.content-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-item {
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: var(--bg-color-light);
+  border: 1px solid var(--hl-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-item.selected,
+.content-item:hover {
+  background-color: var(--hl-color);
+  color: var(--bg-color);
+  transform: scale(1.02);
+}
+
+.content-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--font-color);
+}
+
+.content-date {
+  font-size: 14px;
+  color: var(--font-color-light);
+}
+
+.sidebar-login-signup {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-login-signup button {
+  background-color: var(--hl-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+}
+
+.sidebar-login-signup button:hover {
+  background-color: var(--font-color);
+
+
+}
+
+/* Footer */
+.sidebar-footer {
+  background-color: var(--bg-color-light);
+  padding: 15px 20px;
+  border-top: 1px solid var(--hl-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+}
+
+#profile-icon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: var(--font-color);
+}
+
+.username {
+  margin-right: 15px;
+  font-size: 16px;
+  color: var(--font-color);
+}
+
+#footer-logout {
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--font-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+  }
+
+  .sidebar-header {
+    padding: 15px;
+  }
+}

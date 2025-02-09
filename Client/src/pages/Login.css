@@ -1,0 +1,96 @@
+/* Login.css */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--bg-color);
+  }
+  
+  .login-form {
+    background: rgba(var(--fg-color-rgb), 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(var(--hl-color-rgb), 0.3);
+    border-radius: 20px;
+    outline: none;
+    background-color: rgba(var(--fg-color-rgb), 0.1);
+    color: var(--font-color);
+    transition: border-color 0.3s ease;
+  }
+  
+  .login-form input:focus {
+    border-color: var(--hl-color);
+  }
+  
+  .login-form button {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: var(--hl-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .login-form button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background-color: rgba(var(--hl-color-rgb), 0.3);
+    transition: transform 0.3s ease;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  
+  .login-form button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .login-form button:hover {
+    background-color: var(--hl-color);
+    color: var(--bg-color);
+  }
+  
+  .login-form button span {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .error {
+    color: #e74c3c;
+    margin-bottom: 1rem;
+  }
+
+  .logo-icon {
+    font-size: 2rem; /* Adjust icon size */
+    display:flex;
+    justify-content:center;
+    /* margin-right: 10px; Add spacing between icon and text */
+  }
+  
+  .logo_name {
+    font-size: 2rem; /* Adjust heading size */
+    font-weight: bold;
+    margin-left:10px;
+    display:flex;
+    justify-content:center;
+  }
+  

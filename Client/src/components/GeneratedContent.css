@@ -1,0 +1,105 @@
+.generated-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.conversation {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.message {
+  padding: 10px 15px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.message.human {
+  align-self: flex-end;
+  background-color: var(--hl-color);
+  color: var(--bg-color);
+}
+
+.message.ai {
+  align-self: flex-start;
+  background-color: var(--fg-color);
+  color: var(--font-color);
+}
+
+.ai-response {
+  background-color: rgba(var(--fg-color-rgb), 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.section-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.section-button {
+  background-color: transparent;
+  border: 1px solid var(--hl-color);
+  color: var(--font-color);
+  padding: 5px 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9em;
+}
+
+.section-button:hover,
+.section-button.active {
+  background-color: var(--hl-color);
+  color: var(--bg-color);
+}
+
+.section-icon {
+  margin-right: 5px;
+}
+
+.card {
+  background-color: rgba(var(--fg-color-rgb), 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px);
+}
+
+.card-title {
+  font-size: 1.2em;
+  color: var(--hl-color);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.card-icon {
+  margin-right:  10px;
+}
+
+.card-content {
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.animating .card-content::after {
+  content: '........';
+  animation: blink 0.2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
