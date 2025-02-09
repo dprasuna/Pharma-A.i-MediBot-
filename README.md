@@ -1,5 +1,15 @@
 # 🚀 Pharma AI MediBot – Your AI-Powered Medicine Guide
 
+---
+
+## 📸 Screenshots
+
+
+![image](https://github.com/user-attachments/assets/31c11439-75b8-4a7f-874a-c5295fbb28aa)
+
+
+---
+
 Pharma AI MediBot is an intelligent AI-powered platform that provides **comprehensive medicine details** along with **natural and alternative healing solutions**. It helps users make informed healthcare decisions by offering insights on Ayurvedic, Homeopathic, and Natural healing methods.
 
 ---
@@ -12,15 +22,7 @@ Pharma AI MediBot is an intelligent AI-powered platform that provides **comprehe
 - **Pricing & Composition** – Estimated cost and active ingredients of medicines.
 - **User-Friendly Interface** – Simple input field to enter a medicine name and receive instant AI-generated insights.
 
----
 
-## 📸 Screenshots
-
-
-![image](https://github.com/user-attachments/assets/31c11439-75b8-4a7f-874a-c5295fbb28aa)
-
-
----
 
 ## 🛠️ Tech Stack
 
