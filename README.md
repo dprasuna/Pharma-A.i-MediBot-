@@ -5,7 +5,8 @@
 ## 📸 Screenshots
 
 
-![image](https://github.com/user-attachments/assets/31c11439-75b8-4a7f-874a-c5295fbb28aa)
+![image](https://github.com/user-attachments/assets/f8c82e6c-dceb-4e6f-a884-8946810427ec)
+
 
 
 ---
