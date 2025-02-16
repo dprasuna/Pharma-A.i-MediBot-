@@ -25,7 +25,7 @@ const Sidebar = ({ savedContent, isOpen, onItemClick, selectedItem }) => {
       <div className="sidebar-header">
         <div className="logo-details">
           <MdHealthAndSafety className='logo-icon' />
-          <div className="logo_name">MediBot</div>
+          <div className="logo_name">Pharma-AI-MediBot</div>
         </div>
       </div>
       {user ? (
