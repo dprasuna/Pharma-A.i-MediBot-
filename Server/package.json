@@ -16,7 +16,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
      "build": "echo 'No build step needed for this project' ",
-    "start": "node index.js",
+  "start": "npm install && node index.js",
   "dev": "nodemon index.js"
   },
   "keywords": [],
