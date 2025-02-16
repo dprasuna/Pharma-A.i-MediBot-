@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      axios.get('https://ai-pharma-dfcp.vercel.app/auth/me', {
+      axios.get('http://localhost:5000/auth/me', {
         headers: { 'Authorization': `Bearer ${token}` }
       }).then(response => {
         setUser(response.data.user);
@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await axios.post('https://ai-pharma-dfcp.vercel.app/auth/login', { username, password });
+      const response = await axios.post('http://localhost:5000/auth/login', { username, password });
       const { token, user } = response.data;
       localStorage.setItem('token', token);  // Make sure this line is present
       setUser(user);

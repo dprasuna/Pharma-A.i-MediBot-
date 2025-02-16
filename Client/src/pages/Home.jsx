@@ -78,7 +78,7 @@ const Home = () => {
     if (user) {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('https://ai-pharma-dfcp.vercel.app/savedContent', {
+        const response = await axios.get('http://localhost:5000/savedContent', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         setSavedContent(response.data.sort((a, b) => new Date(b.date) - new Date(a.date)));
@@ -107,7 +107,7 @@ const Home = () => {
 
     try {
       const response = await axios.post(
-        'https://ai-pharma-dfcp.vercel.app/generate',
+        'http://localhost:5000/generate',
         { medicineName: content }
       );
       const generatedContent = response.data.content;
@@ -126,7 +126,7 @@ const Home = () => {
           const token = localStorage.getItem('token');
           if (token) {
             axios.post(
-              'https://ai-pharma-dfcp.vercel.app/generate/save',
+              'http://localhost:5000/generate/save',
               { medicineName: content, content: generatedContent },
               { headers: { 'Authorization': `Bearer ${token}` } }
             );

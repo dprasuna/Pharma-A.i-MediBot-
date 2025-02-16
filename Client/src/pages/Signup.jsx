@@ -15,7 +15,7 @@ const Signup = () => {
     e.preventDefault();
     setLoading(true); 
     try {
-      const response = await axios.post('https://ai-pharma-dfcp.vercel.app/auth/signup', { username, password });
+      const response = await axios.post('http://localhost:5000/auth/signup', { username, password });
       console.log(response.data); 
       setLoading(false); 
       navigate('/login');

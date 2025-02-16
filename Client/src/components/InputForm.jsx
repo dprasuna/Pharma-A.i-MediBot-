@@ -15,7 +15,7 @@ const InputForm = ({ setGeneratedContent }) => {
     setLoading(true);
     try {
       console.log('Generating content for:', medicineName);
-      const response = await axios.post('https://ai-pharma-dfcp.vercel.app/generate', { medicineName });
+      const response = await axios.post('http://localhost:5000/generate', { medicineName });
       const generatedContent = response.data.content;
       console.log('Generated content:', generatedContent);
 
@@ -26,7 +26,7 @@ const InputForm = ({ setGeneratedContent }) => {
         const token = localStorage.getItem('token');
         if (token) {
           await axios.post(
-            'https://ai-pharma-dfcp.vercel.app/generate/save',
+            'http://localhost:5000/generate/save',
             { medicineName, content: generatedContent },
             { headers: { 'Authorization': `Bearer ${token}` } }
           );

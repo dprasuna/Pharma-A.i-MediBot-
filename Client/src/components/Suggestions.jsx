@@ -17,7 +17,7 @@ function Suggestions({ onSuggestionClick }) {
   const handleSubmit = async (medicine) => {
     setLoadingSuggestion(medicine);
     try {
-      const response = await axios.post('https://ai-pharma-dfcp.vercel.app/generate', { medicineName: medicine });
+      const response = await axios.post('http://localhost:5000/generate', { medicineName: medicine });
       const generatedContent = response.data.content;
       onSuggestionClick(medicine);
   
@@ -26,7 +26,7 @@ function Suggestions({ onSuggestionClick }) {
         const token = localStorage.getItem('token');
         if (token) {
           await axios.post(
-            'https://ai-pharma-dfcp.vercel.app/generate/save',
+            'http://localhost:5000/generate/save',
             { medicineName: medicine, content: generatedContent },
             { headers: { 'Authorization': `Bearer ${token}` } }
           );
