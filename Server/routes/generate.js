@@ -1,19 +1,27 @@
 const express = require('express');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-const jwt = require('jsonwebtoken');
 const SavedContent = require('../models/SavedContent');
-const router = express.Router();
 const authenticateToken = require('../middleware/authMiddleware');
-
 require('dotenv').config();
- 
 
+const router = express.Router();
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
+// Rate Limiting (1 request per second)
 let lastRequestTime = 0;
 const RATE_LIMIT_INTERVAL = 1000;
 
+const rateLimiter = (req, res, next) => {
+  const now = Date.now();
+  if (now - lastRequestTime < RATE_LIMIT_INTERVAL) {
+    return res.status(429).json({ error: 'Too Many Requests, please try again later.' });
+  }
+  lastRequestTime = now;
+  next();
+};
+
+// Function to Generate Content
 const generateContent = async (medicineName) => {
   const prompt = `
     Please provide detailed information about the medicine "${medicineName}" in the following categories. Each section should start with the section name followed by a colon (:), and then the content. If information is not available, please mention "Not available".
@@ -38,21 +46,13 @@ const generateContent = async (medicineName) => {
   return result.response.text();
 };
 
-const rateLimiter = (req, res, next) => {
-  const now = Date.now();
-  if (now - lastRequestTime < RATE_LIMIT_INTERVAL) {
-    return res.status(429).json({ error: 'Too Many Requests, please try again later.' });
-  }
-  lastRequestTime = now;
-  next();
-};
-
-
-router.post('/', async (req, res) => {
+// 🔹 Generate Medicine Information
+router.post('/', rateLimiter, async (req, res) => {
   const { medicineName } = req.body;
   if (!medicineName) {
     return res.status(400).json({ error: 'medicineName is required' });
   }
+
   try {
     const content = await generateContent(medicineName);
     res.json({ content });
@@ -62,15 +62,21 @@ router.post('/', async (req, res) => {
   }
 });
 
-
+// 🔹 Save Generated Content to MongoDB
 router.post('/save', authenticateToken, async (req, res) => {
   const { medicineName, content } = req.body;
+
+  if (!medicineName || !content) {
+    return res.status(400).json({ error: 'Medicine name and content are required' });
+  }
+
   try {
     const savedContent = new SavedContent({
       userId: req.user.id,
       medicineName,
       content,
     });
+
     await savedContent.save();
     res.status(201).json({ message: 'Content saved successfully' });
   } catch (error) {

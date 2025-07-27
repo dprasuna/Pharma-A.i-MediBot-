@@ -46,6 +46,22 @@ const InputForm = ({ setGeneratedContent }) => {
     }
   };
 
+  // 🎙️ Voice Search Functionality
+  const startListening = () => {
+    const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+    recognition.lang = 'en-US';
+
+    recognition.onstart = () => console.log("Listening...");
+    recognition.onerror = (event) => console.error("Voice recognition error:", event);
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      console.log("Recognized text:", transcript);
+      setMedicineName(transcript); // Auto-fill input with voice result
+    };
+
+    recognition.start();
+  };
+
   return (
     <>
       <div className="input-form-container">
@@ -55,12 +71,15 @@ const InputForm = ({ setGeneratedContent }) => {
             type="text"
             value={medicineName}
             onChange={(e) => setMedicineName(e.target.value)}
-            placeholder="Enter a medicine name..."
+            placeholder="Enter a medicine name or use voice search..."
             disabled={loading}
           />
-          <div className="submit-button-container">
+          <div className="button-container">
+            <button className="submit-button" type="button" onClick={startListening}>
+              🎙️ Speak
+            </button>
             <button className="submit-button" type="submit" disabled={loading}>
-              {loading ? 'Generating...' : 'Generate'}
+              {loading ? 'Generating...' : '⮞'}
             </button>
           </div>
         </form>

@@ -4,9 +4,6 @@ const SavedContent = require('../models/SavedContent');
 const router = express.Router();
 const authenticateToken = require('../middleware/authMiddleware');
 
-
-
-
 router.post('/saveContent', authenticateToken, async (req, res) => {
   const { medicineName, content } = req.body;
   try {
